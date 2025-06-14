@@ -3,7 +3,7 @@
     "outputDirectory": ".next",
     "framework": "nextjs",
     "regions": [
-        "nrt1"
+        "hnd1"
     ],
     "functions": {
         "app/**/*.tsx": {
