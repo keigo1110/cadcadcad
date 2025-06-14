@@ -386,15 +386,68 @@ const OpenSCADDemo = () => {
       {/* 背景のグラデーション */}
       <div className="fixed inset-0 bg-gradient-to-br from-blue-950/20 via-black to-purple-950/20" />
 
-      {/* ヘッダー */}
-      <header className="relative z-10 p-4 lg:p-6">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl lg:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+      {/* ヘッダーナビゲーション */}
+      <nav className="relative z-20 border-b border-gray-800/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 lg:px-6 py-4">
+          <div className="flex items-center justify-between">
+            {/* ロゴ */}
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+              </div>
+              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                OpenSCAD Playground
+              </span>
+            </div>
+
+            {/* ナビゲーションメニュー */}
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#features" className="text-gray-300 hover:text-white transition-colors">特徴</a>
+              <a href="#steps" className="text-gray-300 hover:text-white transition-colors">使い方</a>
+              <a
+                href="https://nlto3dmodel.vercel.app/#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"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 font-medium"
+              >
+                デモを試す
+              </a>
+            </div>
+
+            {/* モバイルメニューボタン */}
+            <button className="md:hidden p-2 text-gray-300 hover:text-white">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* ヒーローセクション */}
+      <header className="relative z-10 p-4 lg:p-6 pt-8 lg:pt-12">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
             OpenSCAD Playground
           </h1>
-          <p className="text-base lg:text-lg text-gray-300">
+          <p className="text-lg lg:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
             言葉から3Dモデルを生成。パラメータで細かく調整。
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="https://nlto3dmodel.vercel.app/#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"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-3 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 font-medium text-lg"
+            >
+              今すぐ試してみる
+            </a>
+            <a href="#features" className="text-gray-300 hover:text-white transition-colors font-medium text-lg">
+              詳しく見る →
+            </a>
+          </div>
         </div>
       </header>
 
@@ -503,6 +556,209 @@ const OpenSCADDemo = () => {
           ))}
         </div>
       </div>
+
+      {/* なぜAI-CADなのか？セクション */}
+      <section id="features" className="relative z-10 py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 lg:px-6">
+          {/* セクションヘッダー */}
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl lg:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+              「自然言語+GUIパラメータ」CAD
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto">
+              従来のCADツールの複雑さを解消し、誰でも3Dモデリングができるを実現します
+            </p>
+          </div>
+
+          {/* 特徴カード */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {/* 自然言語プロンプト */}
+            <div className="bg-gray-900/50 backdrop-blur border border-gray-800 rounded-xl p-6 lg:p-8 hover:border-blue-500/50 transition-all duration-300 group">
+              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 text-white">自然言語から形を作れる</h3>
+              <p className="text-gray-300 leading-relaxed">
+                「歯車を作って」「ブラケットが欲しいな」など、日本語で思いを伝えるだけでAIが3Dモデルを生成
+              </p>
+            </div>
+
+            {/* 直感的パラメータ調整 */}
+            <div className="bg-gray-900/50 backdrop-blur border border-gray-800 rounded-xl p-6 lg:p-8 hover:border-purple-500/50 transition-all duration-300 group">
+              <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 text-white">直感的なパラメータ調整</h3>
+              <p className="text-gray-300 leading-relaxed">
+                生成されたモデルをGUIで簡単に微調整。寸法、形状を思いのまま
+              </p>
+            </div>
+
+            {/* OpenSCADコード生成 */}
+            <div className="bg-gray-900/50 backdrop-blur border border-gray-800 rounded-xl p-6 lg:p-8 hover:border-green-500/50 transition-all duration-300 group">
+              <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+              </div>
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 text-white">繰り返せる言語指示</h3>
+              <p className="text-gray-300 leading-relaxed">
+                現状の状態をAIと共有した状態で追加の言語指示が可能
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* シンプルな3ステップセクション */}
+      <section id="steps" className="relative z-10 py-16 lg:py-24 bg-gradient-to-b from-transparent via-gray-900/20 to-transparent">
+        <div className="max-w-7xl mx-auto px-4 lg:px-6">
+          {/* セクションヘッダー */}
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl lg:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+              シンプルな3ステップ
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto">
+              複雑な操作は不要。誰でも簡単に3Dモデリングを始められます
+            </p>
+          </div>
+
+                    {/* ステップカード */}
+          <div className="relative">
+            {/* デスクトップ版 */}
+            <div className="hidden md:grid md:grid-cols-3 gap-8 lg:gap-12">
+              {/* ステップ1 */}
+              <div className="text-center group relative">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25 relative z-10">
+                  <span className="text-2xl font-bold text-white">1</span>
+                </div>
+                <h3 className="text-xl lg:text-2xl font-bold mb-4 text-white">プロンプト入力</h3>
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  「机の脚を作って」「スマホスタンドが欲しいな」など、自然な日本語で要望を入力
+                </p>
+
+                {/* 矢印 */}
+                <div className="absolute top-10 left-full w-12 lg:w-16 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform -translate-x-6 lg:-translate-x-8">
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-purple-500 border-t-2 border-b-2 border-t-transparent border-b-transparent"></div>
+                </div>
+              </div>
+
+              {/* ステップ2 */}
+              <div className="text-center group relative">
+                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-purple-500/25 relative z-10">
+                  <span className="text-2xl font-bold text-white">2</span>
+                </div>
+                <h3 className="text-xl lg:text-2xl font-bold mb-4 text-white">AI生成</h3>
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  AIが要望を理解し、最適な3Dモデルとパラメータ調整GUIを数秒で生成。リアルタイムプレビューで確認
+                </p>
+
+                {/* 矢印 */}
+                <div className="absolute top-10 left-full w-12 lg:w-16 h-0.5 bg-gradient-to-r from-purple-500 to-green-500 transform -translate-x-6 lg:-translate-x-8">
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-green-500 border-t-2 border-b-2 border-t-transparent border-b-transparent"></div>
+                </div>
+              </div>
+
+              {/* ステップ3 */}
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-green-500/25 relative z-10">
+                  <span className="text-2xl font-bold text-white">3</span>
+                </div>
+                <h3 className="text-xl lg:text-2xl font-bold mb-4 text-white">調整・出力</h3>
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  GUIパラメータで細かく調整し、STLで出力完了
+                </p>
+              </div>
+            </div>
+
+            {/* モバイル版 */}
+            <div className="md:hidden space-y-8">
+              {/* ステップ1 */}
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25">
+                  <span className="text-2xl font-bold text-white">1</span>
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">プロンプト入力</h3>
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  「机の脚を作って」「スマホスタンドが欲しいな」など、自然な日本語で要望を入力
+                </p>
+              </div>
+
+              {/* 矢印1→2 */}
+              <div className="flex justify-center">
+                <div className="w-0.5 h-12 bg-gradient-to-b from-blue-500 to-purple-500 relative">
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0 border-t-4 border-t-purple-500 border-l-2 border-r-2 border-l-transparent border-r-transparent"></div>
+                </div>
+              </div>
+
+              {/* ステップ2 */}
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-purple-500/25">
+                  <span className="text-2xl font-bold text-white">2</span>
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">AI生成</h3>
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  AIが要望を理解し、最適な3Dモデルとパラメータ調整GUIを数秒で生成。リアルタイムプレビューで確認
+                </p>
+              </div>
+
+              {/* 矢印2→3 */}
+              <div className="flex justify-center">
+                <div className="w-0.5 h-12 bg-gradient-to-b from-purple-500 to-green-500 relative">
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0 border-t-4 border-t-green-500 border-l-2 border-r-2 border-l-transparent border-r-transparent"></div>
+                </div>
+              </div>
+
+              {/* ステップ3 */}
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-green-500/25">
+                  <span className="text-2xl font-bold text-white">3</span>
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">調整・出力</h3>
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  GUIパラメータで細かく調整し、STLで出力完了
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+            {/* 開発チームセクション */}
+      <section className="relative z-10 py-8 lg:py-12">
+        <div className="max-w-4xl mx-auto px-4 lg:px-6 text-center">
+          <p className="text-sm text-gray-500 mb-2">
+            Developed by
+          </p>
+          <p className="text-gray-400 mb-4">
+            東京大学発のクリエイター集団
+            <a
+              href="https://4zigenhp.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white underline underline-offset-2 decoration-gray-600 hover:decoration-gray-400 transition-colors ml-1"
+            >
+              4ZIGEN
+            </a>
+          </p>
+        </div>
+      </section>
+
+      {/* フッター */}
+      <footer className="relative z-10 border-t border-gray-800/50 py-8">
+        <div className="max-w-7xl mx-auto px-4 lg:px-6">
+          <div className="text-center">
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} 4ZIGEN All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
 
       <style>{`
         .slider::-webkit-slider-thumb {
